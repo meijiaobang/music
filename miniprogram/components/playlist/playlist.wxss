@@ -30,5 +30,5 @@
   -webkit-box-orient: vertical;/*属性规定框的子元素应该被水平或垂直排列*/
   -webkit-line-clamp: 2;/*2行显示*/
   overflow: hidden;
-  text-overflow: ellipsis;/*点点点*/
+  text-overflow: ellipsis;/*点点点代替溢出的*/
 }
