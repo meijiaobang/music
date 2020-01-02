@@ -1,6 +1,13 @@
 {
-  "permissions": {
-    "openapi": [
-    ]
-  }
+ 
+  "triggers": [
+    {
+     
+      "name": "t-playlist",
+    
+      "type": "timer",
+    
+      "config": "0 0 12 * * WED *"
+    }
+  ]
 }
