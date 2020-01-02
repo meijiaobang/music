@@ -25,3 +25,6 @@ this.globalData = {}全局的属性或者方法
   从第几条开始取.skip()指定查询返回结果时从指定序列后的结果开始返回，常用于分页
   .limit(...)取的条数，数量上限
   reduce()对象实例，计算数组元素相加后的总和，说白了就是累加器。
+  orderBy()指定查询排序条件
+  #--json
+  "enablePullDownRefresh":true打开下拉 wx.stopPullDownRefresh()//停止下拉动画
