@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "t-musiclist":"/components/musiclist/musiclist"
+  }
+}

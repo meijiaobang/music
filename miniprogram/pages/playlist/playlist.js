@@ -1,6 +1,6 @@
 // pages/playlist/playlist.js
 //定义变量保存取数据的总长度
-const MAX_LIMIT=15
+const MAX_LIMIT = 15
 Page({
 
   /**
@@ -8,14 +8,14 @@ Page({
    */
   data: {
     swiperimgUrl: [{
-      url: 'http://p1.music.126.net/oeH9rlBAj3UNkhOmfog8Hw==/109951164169407335.jpg',
-    },
-    {
-      url: 'http://p1.music.126.net/xhWAaHI-SIYP8ZMzL9NOqg==/109951164167032995.jpg',
-    },
-    {
-      url: 'http://p1.music.126.net/Yo-FjrJTQ9clkDkuUCTtUg==/109951164169441928.jpg',
-    }
+        url: 'http://p1.music.126.net/oeH9rlBAj3UNkhOmfog8Hw==/109951164169407335.jpg',
+      },
+      {
+        url: 'http://p1.music.126.net/xhWAaHI-SIYP8ZMzL9NOqg==/109951164167032995.jpg',
+      },
+      {
+        url: 'http://p1.music.126.net/Yo-FjrJTQ9clkDkuUCTtUg==/109951164169441928.jpg',
+      }
     ],
     playlist: []
   },
@@ -62,7 +62,7 @@ Page({
     //1.0下拉刷新
     //清空原来数据
     this.setData({
-      playlist:[]
+      playlist: []
     })
     //调用云函数加载数据
     this._getplaylist()
@@ -81,22 +81,23 @@ Page({
   onShareAppMessage: function () {
 
   },
-  _getplaylist(){
-     //创建动画
-     wx.showLoading({
+  _getplaylist() {
+    //创建动画
+    wx.showLoading({
       title: '加载中....',
     })
     //调用云函数
     wx.cloud.callFunction({
-      name:'music',
-      data:{
-        start:this.data.playlist.length,
-        count:MAX_LIMIT
+      name: 'music',
+      data: {
+        start: this.data.playlist.length,
+        count: MAX_LIMIT,
+        $url: 'playlist'
       }
-    }).then(res=>{
+    }).then(res => {
       this.setData({
         //拼接加载数据,从原有的基础上加载新的数据
-        playlist:this.data.playlist.concat(res.result.data)
+        playlist: this.data.playlist.concat(res.result.data)
       })
       //停止下拉操作
       wx.stopPullDownRefresh()

@@ -8,6 +8,7 @@ Component({
       type:Object
     }
   },
+  //observers 指定目标节点并开始监听相交状态变化情况
   observers:{
     //监听playCount的值并保存
    ['playlist.playCount'](count){
@@ -28,6 +29,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    goToMusiclist(){
+      //跳到歌单列表
+      wx.navigateTo({
+        url: `../../pages/musiclist/musiclist?playlistId=${this.properties.playlist.id}`,
+      })
+    }, 
     _tranNumber(num,point){
       //定义一个变量来保存数值整数部分
       let numnStr=num.toString().split('.')[0];

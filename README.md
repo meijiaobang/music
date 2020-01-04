@@ -28,3 +28,14 @@ this.globalData = {}全局的属性或者方法
   orderBy()指定查询排序条件
   #--json
   "enablePullDownRefresh":true打开下拉 wx.stopPullDownRefresh()//停止下拉动画
+#--css
+ filter blur(px)给图像设置高斯模糊
+  box-sizing: border-box;对元素指定宽度和高度包括了 padding 和 border 
+   align-items: center;居中对齐弹性盒的各项
+   font-weight:文本的粗细
+   mode="widthFix" 宽度不变，高度自动变化，保持原图宽高比不变。
+   flex-grow 属性用于设置或检索弹性盒子的扩展比率 需加width:0
+  (overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;)这三个配套使用显示...
+  
