@@ -27,3 +27,10 @@
   font-size: 24rpx;
   color:#777;
 }
+.playing view,.playing text{
+  font-size: 30rpx;
+  color: #d43c33;
+}
+.playing .musiclist-index{
+  font-size:50rpx;
+}

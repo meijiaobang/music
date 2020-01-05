@@ -38,4 +38,5 @@ this.globalData = {}全局的属性或者方法
   (overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;)这三个配套使用显示...
-  
+#--自定义属性
+data-自定义名称---->在currentTarget.dataset.自定义名称

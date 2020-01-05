@@ -1,39 +1,18 @@
-// pages/musiclist/musiclist.js
+// pages/player/player.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    musiclist:[],//当前歌曲列表信息
-    listInfo:{},//歌曲名称，描述等
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    wx.showLoading({
-      title: '加载中...',
-    })
-    wx.cloud.callFunction({
-      name:'music',
-      data:{
-        playlistId:options.playlistId,
-        $url:'musiclist'
-      }
-    }).then(res=>{
-      console.log(res)
-      this.setData({
-        musiclist:res.result.playlist.tracks,
-        listInfo:{
-          coverImgUrl:res.result.playlist.coverImgUrl,
-          name:res.result.playlist.name
-        }
-      })
-      wx.hideLoading()
-    })
+    console.log(options.musicid)
   },
 
   /**
