@@ -1,2 +1,8 @@
-<!--pages/player/player.wxml-->
-<text>pages/player/player.wxml</text>
+<view class="player-container" style="background:url({{picUrl}}) center/cover no-repeat"></view>
+<view class="player-mask"></view>
+<!-- 中间播放圆圈 -->
+<view class="play-Info">
+	<view class="player-disc">
+		<image class="player-img" src="{{picUrl}}"></image>
+	</view>
+</view>

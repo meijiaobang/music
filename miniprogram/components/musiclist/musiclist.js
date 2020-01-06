@@ -26,7 +26,7 @@ Component({
       })
       //跳转
       wx.navigateTo({
-        url:`../../pages/player/player?musicid=${musicid}`,
+        url:`../../pages/player/player?musicId=${musicid}&index=${event.currentTarget.dataset.index}`,
       })
     }
   }

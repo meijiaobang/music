@@ -38,5 +38,11 @@ this.globalData = {}全局的属性或者方法
   (overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;)这三个配套使用显示...
+  transform:translate(x,y)括号里的值为百分数时，会以目前元素本身的宽高做参考，比如，目前元素本身的宽为100px，高为50px， 那填(50%,50%)，则表示就是向右移动50px、向下移动25px（正百分数），添加负号（负百分数）就是向着相反的方向移动，即左、上
 #--自定义属性
 data-自定义名称---->在currentTarget.dataset.自定义名称
+wx.setStorageSync(唯一标识,数据)把数据存储到本地wx.getStorageSync(唯一标识)
+wx.setNavigationBarTitle()导航标题
+background-size中的cover会缩放至图片能够铺满整个容器，而contain则是图片会缩放至整个图片都能显示完全，但是容易可能会有留白
+transform: rotate(-30deg);设置旋转
+transform-origin:99% 99%;设置旋转元素的基点位置

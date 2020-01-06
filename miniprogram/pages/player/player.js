@@ -1,4 +1,6 @@
 // pages/player/player.js
+let musiclist=[]
+let nowPlayingIndex=0
 Page({
 
   /**
@@ -12,14 +14,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.musicid)
+    console.log(options)
+    nowPlayingIndex=options.index
+    //获取本地缓存的数据
+    musiclist= wx.getStorageSync('musiclist')
+    this._loadMusiclist()
   },
-
+  _loadMusiclist(){
+    let music= musiclist[nowPlayingIndex]
+    console.log(music)
+    wx.setNavigationBarTitle({
+      title:music.name
+    })
+    //设置背景图片
+    this.setData({
+      picUrl:music.al.picUrl
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
