@@ -46,3 +46,6 @@ wx.setNavigationBarTitle()导航标题
 background-size中的cover会缩放至图片能够铺满整个容器，而contain则是图片会缩放至整个图片都能显示完全，但是容易可能会有留白
 transform: rotate(-30deg);设置旋转
 transform-origin:99% 99%;设置旋转元素的基点位置
+transition:(参数一动画属性如transform,参数二几秒内完成,参数三动画样式)//动画过滤
+animation-play-state: paused;让动画暂停在那一刻停下
+flex:1;让所有弹性盒模型对象的子元素都有相同的长度，且忽略它们内部的内容

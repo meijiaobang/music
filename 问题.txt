@@ -1,0 +1,5 @@
+1.backgroundAudioManager.duration获取音乐总时长可能会是undefined，
+解决：在后面加个一次性定时器再次触发
+2.给data里面的对象的某个属性赋值->通过中括号的方式
+['对象.属性']:新值
+3.

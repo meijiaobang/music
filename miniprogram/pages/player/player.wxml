@@ -2,7 +2,18 @@
 <view class="player-mask"></view>
 <!-- 中间播放圆圈 -->
 <view class="play-Info">
-	<view class="player-disc">
-		<image class="player-img" src="{{picUrl}}"></image>
+	<view class="player-disc {{isPlaying?'play':''}}">
+		<image class="player-img rotation {{isPlaying?'':'rotation-paused'}}" src="{{picUrl}}"></image>
+	</view>
+	<!-- 进度条 -->
+	<view class="progress-bar">
+		<t-progress-bar />
+	</view>
+
+	<!-- 播放字体 -->
+	<view class="control">
+		<text class="iconfont icon-ziyuanldpi" bindtap="onPrev"></text>
+		<text class="iconfont {{isPlaying?'icon-shuangsechangyongtubiao-':'icon-bofang'}}" bindtap="togglePlaying"></text>
+		<text class="iconfont icon-ziyuanldpi1" bindtap="onNext"></text>
 	</view>
 </view>

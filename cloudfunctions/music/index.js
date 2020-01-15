@@ -36,6 +36,12 @@ exports.main = async (event, context) => {
          return JSON.parse(res)
       })
    })
+   // 播放歌曲
+   app.router('musicUrl',async(ctx,next)=>{
+      ctx.body = await rp(BASE_URL+`/song/url?id=${event.musicId}`).then(res=>{
+         return res
+      })
+   })
    //1.3返回中间件服务器
    return app.serve()
 }

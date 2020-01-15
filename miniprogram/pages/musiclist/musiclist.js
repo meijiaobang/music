@@ -24,7 +24,7 @@ Page({
         $url:'musiclist'
       }
     }).then(res=>{
-      console.log(res)
+      // console.log(res)
       this.setData({
         musiclist:res.result.playlist.tracks,
         listInfo:{
