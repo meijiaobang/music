@@ -3,7 +3,8 @@
 	<view class="control">
 		<!-- 进度条 -->
 		<movable-area class="movable-area">
-			<movable-view class="movable-view" direction="horizontal" damping="1000" x="{{movableDis}}" />
+			<movable-view class="movable-view" direction="horizontal" damping="1000" x="{{movableDis}}" bindchange="onChange"
+        bindtouchend="onTouchEnd"/>
 		</movable-area>
 		<!-- 进度 -->
 		<progress stroke-width="3" backgroundColor="#969696" percent="{{progress}}" activeColor="#fff">

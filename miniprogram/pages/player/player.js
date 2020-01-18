@@ -4,14 +4,18 @@ let musiclist = []
 let nowPlayingIndex = 0
 // 获取全局唯一的背景音频管理器
 const backgroundAudioManager = wx.getBackgroundAudioManager()
+// 创建全局app对象,访问全局属性
+  const app=getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     picUrl: '',
     isPlaying: false, //用来做为播放的一个标志
+    isLyricShow:false,//当前歌词是否显示
+    lyric:'',//保存歌词
+    isSame: false, // 表示是否为同一首歌
   },
 
   /**
@@ -26,8 +30,21 @@ Page({
   },
   //加载歌曲
   _loadMusiclist(musicId) {
-    //加载下一首时先暂停当前播放的歌曲
-    backgroundAudioManager.stop()
+    if(musicId == app.getPlayMusicId()){//新旧id是否相同
+      this.setData({//修改标志
+        isSame:true
+      })
+    }else{
+      this.setData({//修改标志
+        isSame:false
+      })
+    }
+    // 如果不是同一首歌曲
+    if(!this.data.isSame){
+      //加载下一首时先暂停当前播放的歌曲
+      backgroundAudioManager.stop()
+    }
+    
     let music = musiclist[nowPlayingIndex]
     // console.log(music)
     wx.setNavigationBarTitle({
@@ -38,6 +55,7 @@ Page({
       picUrl: music.al.picUrl,
       isPlaying: false, //首先进来是不播放的
     })
+    app.setPlayMusicId(musicId)//调用全局函数设置音乐id
     wx.showLoading({
       title: '加载中...',
     })
@@ -52,18 +70,47 @@ Page({
       // console.log(res)
       // console.log(JSON.parse(res.result))
       const result = JSON.parse(res.result)
-      // 音乐地址
-      backgroundAudioManager.src = result.data[0].url
-      backgroundAudioManager.title = music.name
-      // 封面图 URL，用于做原生音频播放器背景图。原生音频播放器中的分享功能，分享出去的卡片配图及背景也将使用该图
-      backgroundAudioManager.coverImgUrl = music.al.picUrl
-      backgroundAudioManager.singer = music.ar[0].name
-      // 专辑名，原生音频播放器中的分享功能，分享出去的卡片简介，也将使用该值
-      backgroundAudioManager.epname = music.al.name
+      // 如果是vip歌曲
+      if(result.data[0].url==null){//数组里面有一个值,如果是null
+        // 没有获取到
+        wx.showToast({
+          title: '暂无权限播放',
+        })
+        return//结束
+      }
+      if(!this.data.isSame){// 如果不是同一首歌曲
+         // 音乐地址
+        backgroundAudioManager.src = result.data[0].url
+        backgroundAudioManager.title = music.name
+        // 封面图 URL，用于做原生音频播放器背景图。原生音频播放器中的分享功能，分享出去的卡片配图及背景也将使用该图
+        backgroundAudioManager.coverImgUrl = music.al.picUrl
+        backgroundAudioManager.singer = music.ar[0].name     
+        // 专辑名，原生音频播放器中的分享功能，分享出去的卡片简介，也将使用该值
+        backgroundAudioManager.epname = music.al.name
+      }
       this.setData({
         isPlaying: true, //是播放的
       })
       wx.hideLoading()
+      // 加载歌词
+      wx.cloud.callFunction({
+        name:'music',
+        data:{
+          musicId,//属性名和对象名一样简写
+          $url:'lyric',
+        }
+      }).then(res=>{
+        // console.log(res)
+        let lyric='暂无歌词'//初始值
+        const lrc=JSON.parse(res.result).lrc//歌词转换成对象
+        if(lrc){//如果这个对象存在
+          lyric=lrc.lyric//得到歌词
+        }
+        //动态赋值
+        this.setData({
+          lyric,//简写
+        })
+      })
     })
 
   },
@@ -95,6 +142,29 @@ Page({
     }
     this._loadMusiclist(musiclist[nowPlayingIndex].id)
   },
+  // 歌词切换(是否显示)
+  onChangeLyricShow() {
+    this.setData({
+      isLyricShow: !this.data.isLyricShow
+    })
+  },
+  // timeUpdate被触发的时间处理函数
+  timeUpdate(event){
+    // 获取组件
+    this.selectComponent('.lyric').update(event.detail.currentTime)
+  },
+  // 系统控制面板联动
+  onPlay() {//当播放时
+    this.setData({
+      isPlaying: true,
+    })
+  },
+  onPause() {//当暂停时
+    this.setData({
+      isPlaying: false,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

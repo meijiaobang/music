@@ -2,12 +2,20 @@
 <view class="player-mask"></view>
 <!-- 中间播放圆圈 -->
 <view class="play-Info">
-	<view class="player-disc {{isPlaying?'play':''}}">
+	<view class="player-disc {{isPlaying?'play':''}}" bind:tap="onChangeLyricShow" hidden="{{isLyricShow}}">
 		<image class="player-img rotation {{isPlaying?'':'rotation-paused'}}" src="{{picUrl}}"></image>
 	</view>
+	<!-- 歌词 -->
+	<t-lyric class="lyric" isLyricShow="{{!isLyricShow}}" bind:tap="onChangeLyricShow" lyric="{{lyric}}"/>
 	<!-- 进度条 -->
 	<view class="progress-bar">
-		<t-progress-bar />
+	<!-- 绑定musicEnd进入下一首(播放完毕时) --><!--接收参数timeUpdate-->
+	<!-- 系统播放组件与小程序播放组件联动 -->
+	<!-- 传值isSame -->
+		<t-progress-bar bind:musicEnd="onNext" bind:timeUpdate="timeUpdate"
+		bind:musicPlay="onPlay" bind:musicPause="onPause"
+		isSame="{{isSame}}"
+		/>
 	</view>
 
 	<!-- 播放字体 -->

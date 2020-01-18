@@ -1,4 +1,5 @@
-#--
+##--wxml
+<isLyricShow>可滚动视图区域,放歌词
 if (!wx.cloud)是否使用云开发
 traceUser: true记录访问过的用户
 this.globalData = {}全局的属性或者方法
@@ -12,9 +13,13 @@ this.globalData = {}全局的属性或者方法
   interval="2000"多久切换一次 duration="1000"花费时长多久
   #--image属性
   mode="widthFix"宽度不变,高度自动变化
-  #--
-  observers:{}监听函数
   #--JS---
+  pageLifetimes://组件所在页面的生命周期lifetimes://组件生命周期
+  scroll-with-animation="true"在设置滚动条位置时使用动画过渡
+  scroll-top设置顶部滚动偏移量，仅在设置了 overflow-y: scroll 成为滚动元素后生效
+  match()查找相同的字符(通常和正则一起使用)方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配,它返回指定的值，
+  forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。
+  observers:{}监听函数
   parseFloat() 函数可解析一个字符串，并返回一个浮点数。
   promise.all()所有完成之后
   promise.race()有的完成了之后 
@@ -49,3 +54,7 @@ transform-origin:99% 99%;设置旋转元素的基点位置
 transition:(参数一动画属性如transform,参数二几秒内完成,参数三动画样式)//动画过滤
 animation-play-state: paused;让动画暂停在那一刻停下
 flex:1;让所有弹性盒模型对象的子元素都有相同的长度，且忽略它们内部的内容
+bindchange拖动进度条的时候触发的事件;bindtouchend松开进度条时触发的事件
+backgroundAudioManager.seek()//让音乐播放时间定为到当前移动的进度位置的时间
+##--组件间通信与事件
+this.triggerEvent('自定义事件')//触发自定义事件(bind:自定义事件="事件函数")//triggerEvent触发类似手枪扳机
