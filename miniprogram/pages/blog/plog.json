@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "t-search":"/components/search/search",
+    "t-login": "/components/login/login"
+  },
+  "navigationBarTitleText": "发现"
 }

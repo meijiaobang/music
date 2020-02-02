@@ -69,6 +69,20 @@
 					"pathName": "pages/musiclist/musiclist",
 					"query": "playlistId=2340173092",
 					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/blog/plog",
+					"pathName": "pages/blog/plog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "pages/blog-edit/blog-edit",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "nickName= \"子正\"& avatarUrl= \"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLiaicib…wWiadvUuYJmMicHjqiamcaAh24nGxiatAmlP7bRo2xn3Q/132\"",
+					"scene": null
 				}
 			]
 		}

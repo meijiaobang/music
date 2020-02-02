@@ -1,1 +1,4 @@
 @import "iconfont.wxss";
+
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";

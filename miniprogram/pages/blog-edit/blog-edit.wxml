@@ -1,0 +1,28 @@
+<view class="container">
+<!--1.绑定键盘输入2.自动获得焦点3.获取键盘高度-->
+	<textarea class="content" placeholder="分享新鲜事..."
+	bindinput="onInput" maxlength="140" auto-focus
+	bindfocus="onFocus" bindblur="onBlur"
+	></textarea>
+	<!-- 显示图片列表 -->
+	<view class="image-list">
+		<!-- 显示图片,循环偏历 -->
+		<block wx:for="{{images}}" wx:key="*this">
+			<view class="image-wrap">
+				<image class="image" src="{{item}}" mode="aspectFill" bind:tap="onPreviewImage" data-imgsrc="{{item}}"></image>
+				<!-- 删除图标 -->
+				<i class="iconfont icon-delete" bind:tap="onDelImage" data-index="{{index}}"></i>
+			</view>
+		</block>
+		<!-- 选择图片按钮,隐藏显示 -->
+		<view class="image-wrap selectphoto" hidden="{{!selectPhoto}}" bind:tap="onChooseImage">
+    <!-- 字体图标 -->
+			<i class="iconfont icon-yuanquanjiahao fone-size"></i>
+		</view>
+	</view>
+</view>
+<!-- 底部 -->
+<view class="footer" style="bottom:{{footerBottom}}px">
+	<text class="words-num">{{wordsNum}}</text>
+	<button class="send-btn" hover-class="hover" bind:tap="send">发布</button>
+</view>

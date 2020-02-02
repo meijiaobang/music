@@ -1,0 +1,8 @@
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";  
+.login{
+  font-size: 35rpx;
+  background-color: #d43c33;
+  color: white;
+  margin:110rpx;
+}

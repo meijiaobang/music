@@ -1,1 +1,26 @@
-/* pages/blog/plog.wxss */
+.header{
+  display: flex;
+  align-items: center;
+  padding:0 20rpx;
+  background-color: white;
+  height: 100rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  box-sizing: border-box;
+}
+.header .icon-fabu{
+  font-size: 48rpx;
+}
+.publish-container{
+  width: 68rpx;
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-container{
+  flex: 1;/*搜索图标占位整个父元素1份*/
+}

@@ -1,2 +1,23 @@
-<!--pages/blog/plog.wxml-->
-<text>pages/blog/plog.wxml</text>
+<view class="container">
+	<!-- 头部 -->
+	<view class="header">
+		<!-- 发布 -->
+		<view class="publish-container" bind:tap="onPublish">
+			<!-- 使用字体图标的i标签 -->
+			<i class="iconfont icon-fabu"></i>
+		</view>
+		<!-- 搜索 -->
+		<view class="search-container">
+			<!-- 组件 -->
+			<!-- 传样式给子组件 -->
+			<t-search iconfont="iconfont" icon-sousuo="icon-sousuo"></t-search>
+		</view>
+	</view>
+	<!-- 底部弹出层 --><!--给副组件传值-->
+	<!-- 接收子组件抛出自定义函数 1.成功2.失败 -->
+	<t-login modalShow="{{modalShow}}"
+	bind:loginsuccess="onLoginSuccess" 
+	bind:loginfail="onLoginFail"
+	>
+	</t-login>
+</view>
