@@ -24,3 +24,12 @@
 .search-container{
   flex: 1;/*搜索图标占位整个父元素1份*/
 }
+/* 博客列表样式 */
+.blog-list{
+  margin-top:120rpx;
+  font-size: 36rpx;
+}
+.blog-panel{
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}

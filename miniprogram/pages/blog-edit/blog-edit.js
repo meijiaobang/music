@@ -112,6 +112,7 @@ Page({
     // 发布过程中可能比较长
     wx.showLoading({
       title: '正在发布...',
+      mask:true//是否显示透明蒙层，防止触摸穿透
     })
     let promiseArr = [] //保存promise对象
     // 保存图片id,每上传成功一张保存一张,保存所有fileID
@@ -156,7 +157,12 @@ Page({
         })
         // 返回blog博客界面,并且刷新
         wx.navigateBack()
-        
+        // 取到当前小程序中的界面
+        const pages=getCurrentPages()
+        // [pages.length - 2]表示取到上一个页面
+        const prevPage=pages[pages.length - 2]
+         // 调用页面下拉刷新功能
+         prevPage.onPullDownRefresh()
       })
     }).catch(err=>{
       wx.hideLoading()

@@ -13,11 +13,20 @@
 			<t-search iconfont="iconfont" icon-sousuo="icon-sousuo"></t-search>
 		</view>
 	</view>
-	<!-- 底部弹出层 --><!--给副组件传值-->
+	<!-- 博客卡片列表1.传图片id过去2.绑定进入详情 -->
+	<view class="blog-list">
+		<block wx:for="{{blogList}}" wx:key="_id">
+			<view class="blog-panel">
+				<t-blog-card blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment"/>
+			</view>
+		</block>
+	</view>
+
+
+
+	<!-- 底部弹出层 -->
+	<!--给副组件传值-->
 	<!-- 接收子组件抛出自定义函数 1.成功2.失败 -->
-	<t-login modalShow="{{modalShow}}"
-	bind:loginsuccess="onLoginSuccess" 
-	bind:loginfail="onLoginFail"
-	>
+	<t-login modalShow="{{modalShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail">
 	</t-login>
 </view>

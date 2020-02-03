@@ -14,6 +14,12 @@ this.globalData = {}全局的属性或者方法
   #--image属性
   mode="widthFix"宽度不变,高度自动变化;aspectFill短边正常显示长边减掉
   #--JS---
+  getCurrentPages()取到当前小程序中的界面
+  RegExp.$1指的是与正则表达式匹配的第一个子匹配(.$1标志)字符串
+  replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串
+  test() 方法用于检测一个字符串是否匹配某个模式
+  JavaScript中可以在某个元素前使用  '+'  号，这个操作是将该元素转换成Number类型，如果转换失败，那么将得到 NaN
+  new Date()//可以获取当前时间并接受所给予的时间变量以时间对象的形式打印出来
   wx.navigateBack()//关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages 获取当前的页面栈，决定需要返回几层
   trim() 方法用于删除字符串的头尾空格
   exec() 方法用于检索字符串中的正则表达式的匹配
@@ -46,6 +52,7 @@ this.globalData = {}全局的属性或者方法
   multipleSlots: true// 启用多个插槽
   "enablePullDownRefresh":true打开下拉 wx.stopPullDownRefresh()//停止下拉动画
 #--css
+:nth-child(3n)//选中3的倍数的元素
 flex-wrap: wrap;规定灵活的项目在必要的时候拆行或拆列。
 externalClasses[]接收外部样式类
  justify-content:center项目位于容器的中心
@@ -70,6 +77,7 @@ transition:(参数一动画属性如transform,参数二几秒内完成,参数三
 animation-play-state: paused;让动画暂停在那一刻停下
 flex:1;让弹性盒模型元素都有相同的长度，且忽略它们内部的内容
 flex: 1;/*搜索图标占位整个父元素1份*/
+flex: 1;/*让所有弹性盒模型对象的子元素都有相同的长度，且忽略它们内部的内容：*/
 bindchange拖动进度条的时候触发的事件;bindtouchend松开进度条时触发的事件
 backgroundAudioManager.seek()//让音乐播放时间定为到当前移动的进度位置的时间
 ##--组件间通信与事件
