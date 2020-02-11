@@ -1,4 +1,4 @@
-// components/search/search.js
+let keyword=''
 Component({
   /**
    * 组件的属性列表
@@ -31,6 +31,15 @@ externalClasses: [
    * 组件的方法列表
    */
   methods: {
-
+    // 文本框获取输入内容信息
+    onInput(event){
+      keyword=event.detail.value
+    },
+    // 模糊搜索事件
+    onSearch(){
+      // 抛出查询事件操作
+      // 激活自定义事件
+      this.triggerEvent('search',{keyword})
+    },
   }
 })

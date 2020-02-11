@@ -3,6 +3,9 @@ Component({
   /**
    * 组件的属性列表
    */
+  options: {
+    styleIsolation: 'shared'
+  },
   properties: {
     modalShow:Boolean,//接收页面传来的值
   },

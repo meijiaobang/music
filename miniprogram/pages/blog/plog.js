@@ -1,4 +1,6 @@
-// pages/blog/plog.js
+// 博客列表
+
+let keyword = ''// 搜索的关键字
 Page({
 
   /**
@@ -48,6 +50,18 @@ Page({
       content: ''
     })
   },
+  // 模糊搜索功能
+  onSearch(event){
+    console.log(event.detail.keyword)
+    // 搜索获取新数据之前先清空
+    this.setData({
+      blogList:[]
+    })
+    // 保存输入的关键字
+    keyword=event.detail.keyword
+    // 调用云函数
+    this._loadBlogList()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -60,11 +74,12 @@ Page({
       title: '正在加载...',
     })
     wx.cloud.callFunction({ //调用云函数
-      name: 'blog',
+      name: 'blog',//云函数名称
       data: {
+        keyword,//关键字
         start,//开始位置条数
-        $url: 'list',
-        count: 3,
+        $url: 'list',//云函数路径名称
+        count: 3,//数量
       }
     }).then((res) => {
       // console.log(res)//从数据库得到数据后给博客数组赋值
@@ -84,6 +99,7 @@ Page({
       url: '../../pages/blog-comment/blog-comment?blogId='+event.target.dataset.blogid,
     })
   },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

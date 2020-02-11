@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-login":"/components/login/login",
+    "t-bottom-modal":"/components/bottom-modal/bottom-modal"
+  }
+}

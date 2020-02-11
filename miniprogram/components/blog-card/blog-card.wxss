@@ -14,9 +14,13 @@ page{
   width: 64rpx;
   height: 64rpx;
   border-radius: 50%;
+  margin-right: 20rpx;
 }
 .blog-box{
   flex: 1;/*让所有弹性盒模型对象的子元素都有相同的长度，且忽略它们内部的内容：*/
+}
+.blog-nickName{
+  font-size: 32rpx;
 }
 /* 文字 */
 .blog-content{

@@ -10,7 +10,7 @@
 		<view class="search-container">
 			<!-- 组件 -->
 			<!-- 传样式给子组件 -->
-			<t-search iconfont="iconfont" icon-sousuo="icon-sousuo"></t-search>
+			<t-search iconfont="iconfont" icon-sousuo="icon-sousuo" bind:search="onSearch"></t-search>
 		</view>
 	</view>
 	<!-- 博客卡片列表1.传图片id过去2.绑定进入详情 -->
@@ -18,6 +18,11 @@
 		<block wx:for="{{blogList}}" wx:key="_id">
 			<view class="blog-panel">
 				<t-blog-card blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment"/>
+				<!-- 引入评论与分享组件 -->
+				<!-- 1.传递iconfont字体图标过去给子组件2.传博客ID -->
+				<t-blog-ctrl
+				blogId="{{item._id}}"
+				 iconfont="iconfont" icon-pinglun="icon-pinglun" icon-fenxiang="icon-fenxiang"/>
 			</view>
 		</block>
 	</view>

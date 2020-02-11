@@ -1,4 +1,6 @@
-##--wxml
+##--wxml--
+<form>//表单设置report-submit="true"表单推送才生效
+<textarea/>//多行文本域fixed="true"属性让其固定
 <isLyricShow>可滚动视图区域,放歌词
 if (!wx.cloud)是否使用云开发
 traceUser: true记录访问过的用户
@@ -14,6 +16,14 @@ this.globalData = {}全局的属性或者方法
   #--image属性
   mode="widthFix"宽度不变,高度自动变化;aspectFill短边正常显示长边减掉
   #--JS---
+  send//订阅消息,模板字符串推送,需在 config.json 中配置 subscribeMessage.send API 的权限
+  triggerEvent//触发自定义事件处理函数
+  wx.getSetting;//是否授权wx.getUserInfo;//获取用户信息
+  where(关键字||条件)指定查询条件，返回带新查询条件的新的集合引用
+  db.RegExp({//云函数数据库模糊搜索
+          regexp:keyword,//关键字
+          options:'i'//不分大小写
+        })
   getCurrentPages()取到当前小程序中的界面
   RegExp.$1指的是与正则表达式匹配的第一个子匹配(.$1标志)字符串
   replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串
@@ -52,9 +62,10 @@ this.globalData = {}全局的属性或者方法
   multipleSlots: true// 启用多个插槽
   "enablePullDownRefresh":true打开下拉 wx.stopPullDownRefresh()//停止下拉动画
 #--css
+flex-direction: row;默认值。灵活的项目将水平显示，正如一个行一样
 :nth-child(3n)//选中3的倍数的元素
 flex-wrap: wrap;规定灵活的项目在必要的时候拆行或拆列。
-externalClasses[]接收外部样式类
+externalClasses[]子组件接收外部样式类
  justify-content:center项目位于容器的中心
  align-items:center;居中对齐弹性盒的各项元素
  filter blur(px)给图像设置高斯模糊

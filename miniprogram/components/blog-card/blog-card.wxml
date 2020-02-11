@@ -1,9 +1,10 @@
 <!-- 博客卡片列表 -->
 <view class="blog">
+<!-- 头像信息 -->
 	<view class="blog-title">
 		<image class="plog-portrait" src="{{blog.avatarUrl}}"></image>
 		<view class="blog-box">
-			<view>{{blog.nickName}}</view>
+			<view class="blog-nickName">{{blog.nickName}}</view>
 			<view class="blog-item">{{_createTime}}</view>
 		</view>
 	</view>

@@ -1,0 +1,26 @@
+<!-- 评论与分享组件 -->
+<view class="ctrl">
+	<!-- 评论 -->
+	<view class="ctrl-item" bind:tap="onComment">
+		<i class="iconfont icon-pinglun icon"></i>
+		<text>评论</text>
+	</view>
+	<!-- 分享 -->
+	<view class="ctrl-item">
+		<i class="iconfont icon-fenxiang icon"></i>
+		<text>分享</text>
+	</view>
+</view>
+<!-- 登录授权底部弹出层 -->
+<!-- 1.绑定自定义事件 -->
+<t-login modalShow="{{loginShow}}" bind:loginsuccess="loginsuccess" bind:loginfail="loginfail" />
+
+<!-- 评论 -->
+<t-bottom-modal modalShow="{{modalShow}}">
+	<!-- 存放插槽 -->
+	<view slot="modal-content">
+		<textarea name="content" class="comment-content" placeholder="输入评论" value="{{content}}" fixed="true" bindinput="onInput">
+    </textarea>
+		<button size='mini' class="send" bind:tap="onSend">发送</button>
+	</view>
+</t-bottom-modal>

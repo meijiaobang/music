@@ -1,0 +1,50 @@
+.ctrl {
+  display: flex;
+  align-items: center;
+  background: white;
+  height: 100%;
+}
+
+.ctrl-item {
+  flex: 1;
+  text-align: center;
+  color: rgba(40, 47, 60, 0.8);
+  font-size: 26rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctrl-item text {
+  font-size: 32rpx;
+}
+
+.ctrl-item .icon {
+  margin-right: 12rpx;
+  font-size: 32rpx;
+}
+
+/* 评论样式 */
+.comment-content {
+  width: 560rpx;
+  text-align: left;
+  padding: 20rpx;
+  font-size: 32rpx;
+}
+/* 按钮 */
+.send {
+  background: #d43c33;
+  color: #fff;
+  border-radius: 6px;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  right: 20rpx;
+  bottom: 20rpx;
+}
+button:is([size='mini']) {
+  height:80rpx;
+  width:150rpx;
+}

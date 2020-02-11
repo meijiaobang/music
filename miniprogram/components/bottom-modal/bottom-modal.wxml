@@ -2,6 +2,7 @@
   <view class="panel">
     <i class="iconfont icon-delete" bind:tap="onClose"></i>
      <!-- slot插槽  具名插槽-->
+     <!-- 外部调用时存放东西 -->
      <slot name="modal-content"></slot>
   </view>
 </view>
