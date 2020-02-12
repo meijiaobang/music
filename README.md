@@ -1,4 +1,8 @@
 ##--wxml--
+<button>属性open-type="share"//触发分享函数
+<scroll-view>属性scroll-y="true"//可使页面垂直滚动
+scroll-with-animation="true"在设置滚动条位置时使用动画过渡
+  scroll-top设置顶部滚动偏移量，仅在设置了 overflow-y: scroll 成为滚动元素后生效
 <form>//表单设置report-submit="true"表单推送才生效
 <textarea/>//多行文本域fixed="true"属性让其固定
 <isLyricShow>可滚动视图区域,放歌词
@@ -16,6 +20,7 @@ this.globalData = {}全局的属性或者方法
   #--image属性
   mode="widthFix"宽度不变,高度自动变化;aspectFill短边正常显示长边减掉
   #--JS---
+  Math.ceil//计算得到结果向上取整
   send//订阅消息,模板字符串推送,需在 config.json 中配置 subscribeMessage.send API 的权限
   triggerEvent//触发自定义事件处理函数
   wx.getSetting;//是否授权wx.getUserInfo;//获取用户信息
@@ -42,8 +47,8 @@ this.globalData = {}全局的属性或者方法
   auto-focus//自动获取焦点bindfocus//获取焦点bindblur//失去焦点
   open-type="getUserInfo"按钮的开放能力//获取当前用户的数据信息  bindgetuserinfo="自定义函数"//事件处理函数
   pageLifetimes://组件所在页面的生命周期lifetimes://组件生命周期
-  scroll-with-animation="true"在设置滚动条位置时使用动画过渡
-  scroll-top设置顶部滚动偏移量，仅在设置了 overflow-y: scroll 成为滚动元素后生效
+
+  
   match()查找相同的字符(通常和正则一起使用)方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配,它返回指定的值，
   forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。
   observers:{}监听函数
@@ -56,8 +61,8 @@ this.globalData = {}全局的属性或者方法
   #--
   从第几条开始取.skip()指定查询返回结果时从指定序列后的结果开始返回，常用于分页
   .limit(...)取的条数，数量上限
-  reduce()对象实例，计算数组元素相加后的总和，说白了就是累加器。
-  orderBy()指定查询排序条件
+  reduce('初始值','当前元素')对象实例，计算数组元素相加后的总和，说白了就是累加器。
+  orderBy('属性名','desc')指定查询排序条件
   #--json
   multipleSlots: true// 启用多个插槽
   "enablePullDownRefresh":true打开下拉 wx.stopPullDownRefresh()//停止下拉动画

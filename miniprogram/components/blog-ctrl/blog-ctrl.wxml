@@ -7,8 +7,11 @@
 	</view>
 	<!-- 分享 -->
 	<view class="ctrl-item">
-		<i class="iconfont icon-fenxiang icon"></i>
-		<text>分享</text>
+	<!-- 1.传递博客Id2. -->
+		<button class="share-btn" hover-class="share-hover" open-type="share" data-blogid="{{blogId}}" data-blog="{{blog}}">
+			<i class="iconfont icon-fenxiang icon"></i>
+			<text>分享</text>
+		</button>
 	</view>
 </view>
 <!-- 登录授权底部弹出层 -->

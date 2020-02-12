@@ -17,7 +17,7 @@ Component({
    */
   properties: {
     blogId: String, // 接收传过来的博客Id
-
+    blog:Object,//接收传过来的博客信息对象
   },
 
   // 接收外部传过来的样式css类
@@ -108,13 +108,12 @@ Component({
         data: {
           content, //内容
           blogId: this.properties.blogId, //父组件传过来的博客ID
+          createTime:db.serverDate(),//取用服务器时间
           // 用户昵称和头像
           nickName: userInfo.nickName,
           avatarUrl: userInfo.avatarUrl
         }
       }).then(res => {
-      
-        console.log("进1")
         wx.hideLoading()
         wx.showToast({
           title: '评论成功',
@@ -123,6 +122,9 @@ Component({
           modalShow: false, //隐藏评论框
           content: '', //清空评论框内容
         })
+        // 刷新页面
+        // 【抛出触发事件】
+        this.triggerEvent('refreshCommentList')
       })
         // 表单推送
       wx.requestSubscribeMessage({
@@ -136,7 +138,7 @@ Component({
               name: 'subscribeMessage',
               data: {
                 content, //内容
-                blogId: this.properties.blogId, //父组件传过来的博客ID
+                blogId: this.properties.blogId,//父组件传过来的博客ID
               }
             }).then(res => {
               console.log("进3")

@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "t-blog-card": "/components/blog-card/blog-card",
+    "t-blog-ctrl": "/components/blog-ctrl/blog-ctrl"
+  },
+  "navigationBarTitleText": "详情页"
 }

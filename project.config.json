@@ -84,6 +84,13 @@
 					"pathName": "pages/blog-edit/blog-edit",
 					"query": "nickName= \"子正\"& avatarUrl= \"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLiaicib…wWiadvUuYJmMicHjqiamcaAh24nGxiatAmlP7bRo2xn3Q/132\"",
 					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "pages/blog-comment/blog-comment",
+					"pathName": "pages/blog-comment/blog-comment",
+					"query": "blogId=\"da51bd8c5e380b5809ce1f2e556ea96c\"",
+					"scene": null
 				}
 			]
 		}

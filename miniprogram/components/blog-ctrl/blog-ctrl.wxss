@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   background: white;
-  height: 100%;
+  height: 60rpx;
 }
 
 .ctrl-item {
@@ -10,7 +10,7 @@
   text-align: center;
   color: rgba(40, 47, 60, 0.8);
   font-size: 26rpx;
-  height: 60rpx;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,6 +24,7 @@
 .ctrl-item .icon {
   margin-right: 12rpx;
   font-size: 32rpx;
+  font-weight: 800;
 }
 
 /* 评论样式 */
@@ -44,7 +45,28 @@
   right: 20rpx;
   bottom: 20rpx;
 }
-button:is([size='mini']) {
-  height:80rpx;
-  width:150rpx;
+ button:not([size='mini']) {
+  min-height:0;
+}
+.share-btn{
+  background-color: #fff;
+  
+  color:rgba(40,47,60,.8);
+  padding: 0;
+  margin: 0;
+  border:none;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.share-btn text{
+  font-size:32rpx;
+  font-weight:400;
+}
+.share-btn::after {
+  display: none;
+}
+.share-hover::after {
+  border: 0;
 }

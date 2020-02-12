@@ -9,7 +9,7 @@ exports.main = async (event, context) => {
   try {
     const result = await cloud.openapi.subscribeMessage.send({
         touser: OPENID,
-        page: `pages/blog-comment/blog-comment?blogId=${event.blogId}`,
+        page: `/pages/blog-comment/blog-comment?blogId=${event.blogId}`,
         data: {
           thing3: {
             value: '评价结果'

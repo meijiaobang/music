@@ -19,8 +19,8 @@
 			<view class="blog-panel">
 				<t-blog-card blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment"/>
 				<!-- 引入评论与分享组件 -->
-				<!-- 1.传递iconfont字体图标过去给子组件2.传博客ID -->
-				<t-blog-ctrl
+				<!-- 1.传递iconfont字体图标过去给子组件2.传博客ID3.传内容 -->
+				<t-blog-ctrl blog="{{item}}"
 				blogId="{{item._id}}"
 				 iconfont="iconfont" icon-pinglun="icon-pinglun" icon-fenxiang="icon-fenxiang"/>
 			</view>

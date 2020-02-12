@@ -1,2 +1,34 @@
-<!--pages/blog-comment/blog-comment.wxml-->
-<text>pages/blog-comment/blog-comment.wxml</text>
+<!--博客详情页面 -->
+<!-- 外边一个能上下滚动的容器 -->
+<scroll-view scroll-y="true" class="container">
+	<!-- 图片内容 -->
+	<view class="blog-card">
+		<!-- 引入博客组件1.传递博客页面信息过去 -->
+		<t-blog-card blog="{{blog}}" />
+	</view>
+	<!-- 评论点赞 -->
+	<view class="tab">
+		<view class="tab-item">评论列表</view>
+	</view>
+	<!-- 评论内容列表 -->
+	<view class="comment-list">
+		<block wx:for="{{commentList}}" wx:key="_id">
+			<!-- 评论 -->
+			<view class="comment">
+        <!-- 头像和昵称 -->
+        <view class="comment-title">
+          <image class="comment-portrait" src="{{item.avatarUrl}}"></image>
+          <text class="comment-nickname">{{item.nickName}}</text>
+        </view>
+        <!-- 评论内容 -->
+        <view class="comment-content">{{item.content}}</view>
+        <view class="comment-time">{{item.createTime}}</view>
+      </view>
+		</block>
+	</view>
+</scroll-view>
+<!-- 评论组件 -->
+<view class="blog-ctrl">
+<!-- 引入1.传递博客id2.接收触发事件 -->
+  <t-blog-ctrl blogId="{{blog._id}}" bind:refreshCommentList="_getBlogDetail"/>
+</view>
