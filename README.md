@@ -1,4 +1,6 @@
 ##--wxml--
+<open-data>标签type="userAvatarUrl"属性获取用户头像(只能用来展示)
+<navigator>跳转标签hover-class="none"属性去掉默认样式
 <button>属性open-type="share"//触发分享函数
 <scroll-view>属性scroll-y="true"//可使页面垂直滚动
 scroll-with-animation="true"在设置滚动条位置时使用动画过渡
@@ -20,6 +22,8 @@ this.globalData = {}全局的属性或者方法
   #--image属性
   mode="widthFix"宽度不变,高度自动变化;aspectFill短边正常显示长边减掉
   #--JS---
+  "disableScroll":true//在(配置页)中页面不能上下滚动
+  getWXContext()获取openid等用户信息
   Math.ceil//计算得到结果向上取整
   send//订阅消息,模板字符串推送,需在 config.json 中配置 subscribeMessage.send API 的权限
   triggerEvent//触发自定义事件处理函数
@@ -67,12 +71,13 @@ this.globalData = {}全局的属性或者方法
   multipleSlots: true// 启用多个插槽
   "enablePullDownRefresh":true打开下拉 wx.stopPullDownRefresh()//停止下拉动画
 #--css
-flex-direction: row;默认值。灵活的项目将水平显示，正如一个行一样
+text-shadow//文字阴影
+flex-direction: row;默认值。灵活的项目将水平显示，正如一个行一样column属性值灵活的项目将垂直显示，正如一个列一样。
 :nth-child(3n)//选中3的倍数的元素
 flex-wrap: wrap;规定灵活的项目在必要的时候拆行或拆列。
 externalClasses[]子组件接收外部样式类
- justify-content:center项目位于容器的中心
- align-items:center;居中对齐弹性盒的各项元素
+align-items: center;/*水平居中*/
+ justify-content: center;/*垂直居中*/space-between属性两端对齐
  filter blur(px)给图像设置高斯模糊
   box-sizing: border-box;对元素指定宽度和高度包括了 padding 和 border 
    align-items: center;居中对齐弹性盒的各项

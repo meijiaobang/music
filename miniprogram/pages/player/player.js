@@ -1,6 +1,7 @@
 // pages/player/player.js
+// 当前正在播放歌单的数组
 let musiclist = []
-//当前正在播放的曲子
+//当前正在播放的曲子(索引)
 let nowPlayingIndex = 0
 // 获取全局唯一的背景音频管理器
 const backgroundAudioManager = wx.getBackgroundAudioManager()
@@ -87,6 +88,9 @@ Page({
         backgroundAudioManager.singer = music.ar[0].name     
         // 专辑名，原生音频播放器中的分享功能，分享出去的卡片简介，也将使用该值
         backgroundAudioManager.epname = music.al.name
+
+        // 保存播放历史
+        this.savePlayHistory()
       }
       this.setData({
         isPlaying: true, //是播放的
@@ -163,6 +167,34 @@ Page({
     this.setData({
       isPlaying: false,
     })
+  },
+  // 保存播放历史
+  savePlayHistory(){
+    // 当前正在播放的歌曲
+    const music =musiclist[nowPlayingIndex]
+    // 本地存储所对应的数组
+    const openid = app.globalData.openid
+    // 创建标志位
+    let bHave=false
+    // 取到对应的值
+    const history=wx.getStorageSync(openid)
+    console.log('history='+history)
+    for(let i = 0, len = history.length; i < len; i++){
+      // 本地缓存数组的对应索引歌曲是否已经有历史
+      if(history[i].id==music.id){
+        bHave=true
+        break
+      }
+    }
+    // 如果还没进入历史
+    if(!bHave){
+      // 往数组开头插入数据(使当前播放歌曲进入历史)
+      history.unshift(music)
+      wx.setStorage({
+        data:history,
+        key:openid,
+      })
+    }
   },
 
   /**

@@ -1,37 +1,40 @@
-// pages/profile/profile.js
+// pages/profile-playhistory/profile-playhistory.js
+// 取到全局app对象
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    musiclist: [],//存放播放的歌曲(历史)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 取到值,播放历史
+   const playHistory= wx.getStorageSync(app.globalData.openid)
+  //  如果是新的用户
+   if(playHistory.length==0){
+    wx.showMoadl({
+      title:'播放历史为空',
+      content:'',
+    })
+   }else{
+    //  将播放历史歌单替换Storage里面存储的歌单
+    wx.setStorage({
+      data: playHistory,
+      key: 'musiclist',
+    })
+    // 动态添加播放数据
+    this.setData({
+      musiclist:playHistory
+    })
+   }
+  },
 
-  },
-// 获取小程序码
-  onTapQrCode(){
-    wx.showLoading({
-      title: '生成中',
-    })
-    wx.cloud.callFunction({
-      name:'getQrcode'
-    }).then(res=>{
-      // console.log(res)
-      // 预览图片
-      const fileId=res.result
-      wx.previewImage({
-        urls: [fileId],//要预览的图片的地址列表
-        current:fileId//当前要预览的地址
-      })
-      wx.hideLoading()
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

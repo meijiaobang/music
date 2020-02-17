@@ -18,7 +18,7 @@
 		/>
 	</view>
 
-	<!-- 播放字体 -->
+	<!-- 播放字体按钮 -->
 	<view class="control">
 		<text class="iconfont icon-ziyuanldpi" bindtap="onPrev"></text>
 		<text class="iconfont {{isPlaying?'icon-shuangsechangyongtubiao-':'icon-bofang'}}" bindtap="togglePlaying"></text>

@@ -54,7 +54,7 @@ exports.main = async (event, context) => {
         let promise = db.collection('blog-comment').skip(i * MAX_LIMIT)
           // 每次取多少条
           .limit(MAX_LIMIT).where({
-            // 查询掉件
+            // 查询条件
             blogId
           }).orderBy('createTime', 'desc').get()
         tasks.push(promise)
@@ -75,5 +75,22 @@ exports.main = async (event, context) => {
       detail
     }
   })
+  // 我的发现功能,获取列表
+  const wxContent=cloud.getWXContext()
+  app.router('getListByOpenid',async(ctx,next)=>{
+    // 查询条件
+    ctx.body= await blogCollection.where({
+      _openid:wxContent.OPENID
+    })
+    //分页查询
+    .skip(event.start)
+    // 查询条数
+    .limit(event.count)
+    // 逆序
+    .orderBy('createTime','desc').get().then(res=>{
+      return res.data
+    })
+  })
+
   return app.serve()
 }

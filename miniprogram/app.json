@@ -6,14 +6,16 @@
     "pages/musiclist/musiclist",
     "pages/player/player",
     "pages/blog-edit/blog-edit",
-    "pages/blog-comment/blog-comment"
+    "pages/blog-comment/blog-comment",
+    "pages/profile-playhistory/profile-playhistory",
+    "pages/profile-bloghistory/profile-bloghistory"
   ],
   "requiredBackgroundModes": ["audio", "location"],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#d43c33",
-    "navigationBarTitleText": "音乐2020",
+    "navigationBarTitleText": "逝音之巅",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

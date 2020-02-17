@@ -101,6 +101,7 @@ Page({
     return{
       title:blogObj.content,
       path:`/pages/blog-comment/blog-comment?blogId=${blogObj._id}`,
+      // imageUrl:''//指定图片URL
     }
   }
 })

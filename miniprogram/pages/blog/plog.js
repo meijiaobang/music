@@ -155,7 +155,7 @@ Page({
     return{
       title:blogObj.content,
       path:`/pages/blog-comment/blog-comment?blogId=${blogObj._id}`,
-      // imageUrl:''
+      // imageUrl:'',//指定图片URL
     }
   }
 })

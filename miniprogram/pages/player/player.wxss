@@ -82,11 +82,12 @@
 }
 
 /* 中间播放字体样式 */
+.icon-shuangsechangyongtubiao-,.icon-bofang{
+  font-size: 100rpx;
+}
 .icon-ziyuanldpi,
-.icon-ziyuanldpi1,
-.icon-bofang,
-.icon-shuangsechangyongtubiao- {
-  font-size: 60rpx;
+.icon-ziyuanldpi1{
+  font-size: 40rpx;
   margin: 0 50rpx;
 }
 

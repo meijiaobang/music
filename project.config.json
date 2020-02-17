@@ -91,6 +91,13 @@
 					"pathName": "pages/blog-comment/blog-comment",
 					"query": "blogId=\"da51bd8c5e380b5809ce1f2e556ea96c\"",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/profile/profile",
+					"pathName": "pages/profile/profile",
+					"query": "blogId=\"da51bd8c5e380b5809ce1f2e556ea96c\"",
+					"scene": null
 				}
 			]
 		}

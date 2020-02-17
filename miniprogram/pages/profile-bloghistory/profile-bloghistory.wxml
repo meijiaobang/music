@@ -1,0 +1,16 @@
+<!-- 我的发现,博客列表 -->
+<view>
+  <block wx:for="{{blogList}}" wx:key="_id">
+    <view class="blog-panel">
+      <t-blog-card
+      blog="{{item}}"
+      data-blogid="{{item._id}}"
+      bind:tap="goComment"
+      />
+      <t-blog-ctrl
+      blog="{{item}}"
+      data-blogid="{{item._id}}"
+      />
+    </view>
+  </block>
+</view>
