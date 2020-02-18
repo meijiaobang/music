@@ -2,7 +2,6 @@
 // 取到全局app对象
 const app=getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -18,9 +17,9 @@ Page({
    const playHistory= wx.getStorageSync(app.globalData.openid)
   //  如果是新的用户
    if(playHistory.length==0){
-    wx.showMoadl({
-      title:'播放历史为空',
-      content:'',
+    wx.showModal({
+      title: '播放历史为空',
+      content: '',
     })
    }else{
     //  将播放历史歌单替换Storage里面存储的歌单
