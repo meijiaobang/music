@@ -7,7 +7,7 @@
     
       "type": "timer",
     
-      "config": "0 0 12 * * WED *"
+      "config": "*/5 * * * * * *"
     }
   ]
 }

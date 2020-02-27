@@ -1,4 +1,6 @@
-// pages/playlist/playlist.js
+//#############--------歌单-------------------##########
+// 初始化数据库
+const db = wx.cloud.database()
 //定义变量保存取数据的总长度
 const MAX_LIMIT = 15
 Page({
@@ -7,15 +9,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperimgUrl: [{
-        url: 'http://p1.music.126.net/oeH9rlBAj3UNkhOmfog8Hw==/109951164169407335.jpg',
-      },
-      {
-        url: 'http://p1.music.126.net/xhWAaHI-SIYP8ZMzL9NOqg==/109951164167032995.jpg',
-      },
-      {
-        url: 'http://p1.music.126.net/Yo-FjrJTQ9clkDkuUCTtUg==/109951164169441928.jpg',
-      }
+    swiperimgUrl: [
+      // {
+      //   url: 'http://p1.music.126.net/oeH9rlBAj3UNkhOmfog8Hw==/109951164169407335.jpg',
+      // },
+      // {
+      //   url: 'http://p1.music.126.net/xhWAaHI-SIYP8ZMzL9NOqg==/109951164167032995.jpg',
+      // },
+      // {
+      //   url: 'http://p1.music.126.net/Yo-FjrJTQ9clkDkuUCTtUg==/109951164169441928.jpg',
+      // }
     ],
     playlist: []
   },
@@ -25,6 +28,7 @@ Page({
    */
   onLoad: function (options) {
     this._getplaylist()
+    this._getSwiper()
   },
 
   /**
@@ -66,6 +70,7 @@ Page({
     })
     //调用云函数加载数据
     this._getplaylist()
+    this._getSwiper()
   },
 
   /**
@@ -81,6 +86,7 @@ Page({
   onShareAppMessage: function () {
 
   },
+  // 获取歌单
   _getplaylist() {
     //创建动画
     wx.showLoading({
@@ -103,6 +109,14 @@ Page({
       wx.stopPullDownRefresh()
       //关闭动画
       wx.hideLoading()
+    })
+  },
+  // 读取数据库获取云图片(轮播图)
+  _getSwiper(){
+    db.collection('swiper').get().then(res => {
+      this.setData({
+        swiperimgUrl: res.data
+      })
     })
   }
 })
